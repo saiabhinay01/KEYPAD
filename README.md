@@ -1,3 +1,2 @@
-#Typing Keypad
-<br>
+<h2>Typing Keypad</h2>
 -> Use the keypad keys to click...
