@@ -1,0 +1,328 @@
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        
+    </style>
+    
+    <body style="background-color:bisque;">
+        <p id="h"style="font-size:50px;margin-top: +100px;display:flex;justify-content: center;">Keypad Typing </p>
+        <div style="display: flex;flex-direction: column;align-items: center;justify-content: center; height:100%;margin-top: -200px;">
+        <div id="tb" style="width: 296px; height: 50px;background-color: whitesmoke; color: black;border:black;border-style: solid;display: flex;flex-direction: row;justify-content: space-between;">
+            <h1 id="text" style="color: black;">
+                _
+            </h1>
+            <button id="clear" style="width: 100px; height: 70px; background-color: whitesmoke;border-style: outset;border-color: transparent;">
+            <h2 >clear</h2>
+            </button>
+        </div>
+        
+        <div id="but" style="display:grid; grid-template-columns: repeat(3,1fr); width: 300;height: 220;">
+        <button id="1" style="width: 100px; height: 70px; background-color: whitesmoke;border-style: outset;">
+            <h2 >1</h2>
+            <h3 >@</h3>
+        </button>
+        <button id="2" style="width: 100px; height: 70px; background-color: whitesmoke;border-style: outset;">
+            <h2 >2</h2>
+            <h3>abc</h3>
+        </button>
+        <button id="3" style="width: 100px; height: 70px; background-color: whitesmoke;border-style: outset;">
+            <h2 >3</h2>
+            <h3 >def</h3>
+        </button>
+        <button id="4" style="width: 100px; height: 70px; background-color: whitesmoke;border-style: outset;">
+            <h2 >4</h2>
+            <h3 >ghi</h3>
+        </button>
+        <button id="5" style="width: 100px; height: 70px; background-color: whitesmoke;border-style: outset;">
+            <h2 >5</h2>
+            <h3 >jkl</h3>
+        </button>
+        <button id="6" style="width: 100px; height: 70px; background-color: whitesmoke;border-style: outset;">
+            <h2 >6</h2>
+            <h3 >mno</h3>
+        </button>
+        <button id="7" style="width: 100px; height: 70px; background-color: whitesmoke;border-style: outset;">
+            <h2 >7</h2>
+            <h3 >pqrs</h3>
+        </button>
+        <button id="8" style="width: 100px; height: 70px; background-color: whitesmoke;border-style: outset;">
+            <h2 >8</h2>
+            <h3 >tuv</h3>
+        </button>
+        <button id="9" style="width: 100px; height: 70px; background-color: whitesmoke;border-style: outset;">
+            <h2 >9</h2>
+            <h3 >wxyz</h3>
+        </button>
+        <button id="*" style="width: 100px; height: 70px; background-color: whitesmoke;border-style: outset;">
+            <h2 >*</h2>
+            <h3 >#</h3>
+        </button>
+        <button id="0" style="width: 100px; height: 70px; background-color: whitesmoke;border-style: outset;">
+            <h2 >0</h2>
+            <h3 >space</h3>
+        </button>
+        <button id="<<" style="width: 100px; height: 70px; background-color: whitesmoke;border-style: outset;">
+            <h2 ><<</h2>
+        </button>
+        
+        </div>
+        </div>
+    </body>
+    <script>
+       
+        alert("      Welcome to Keypad Typing");
+        let clicks=0;
+        let timer=null;
+        let box = document.getElementById("text");
+        let h=document.getElementById("h");
+        let sw=0;
+        let blink;
+        const click = new Audio('click.mp3');
+        click.volume = 0.3; 
+        function sound(){
+            click.currentTime = 0;  // Rewind to start
+            click.play();
+        }
+       setInterval(()=>{
+        h.textContent=h.textContent.slice(1)+h.textContent.charAt(0);
+       },500);
+       
+       document.getElementById("clear").addEventListener("click",()=>{
+        sound();
+        box.innerText="_";
+       })
+        document.getElementById("1").addEventListener("click",()=>{
+            sound();
+            clicks++;
+            clearTimeout(timer);
+            timer= setTimeout(()=>{
+                clicks=0;
+                box.innerText= box.innerText+"_";
+    
+            },500);
+            if(clicks==1)
+            box.innerText= box.innerText.slice(0,-1)+"1";
+            if(clicks==2){
+            box.innerText= box.innerText.slice(0,-1)+"@";
+            clicks=0;
+            }
+        })
+        document.getElementById("2").addEventListener("click",()=>{
+            sound();
+            clicks++;
+            clearTimeout(timer);
+            timer= setTimeout(()=>{
+                clicks=0;
+                box.innerText= box.innerText+"_";
+
+    
+            },500);
+            if(clicks==1)
+            box.innerText= box.innerText.slice(0,-1)+"2";
+        if(clicks==2)
+            box.innerText= box.innerText.slice(0,-1)+"a";
+        if(clicks==3)
+            box.innerText= box.innerText.slice(0,-1)+"b";
+            if(clicks==4){
+            box.innerText= box.innerText.slice(0,-1)+"c";
+            clicks=0;
+            }
+        })
+        document.getElementById("3").addEventListener("click",()=>{
+            sound();
+            clicks++;
+            clearTimeout(timer);
+            timer= setTimeout(()=>{
+                clicks=0;
+                box.innerText= box.innerText+"_";
+
+    
+            },500);
+            if(clicks==1)
+            box.innerText= box.innerText.slice(0,-1)+"3";
+        if(clicks==2)
+            box.innerText= box.innerText.slice(0,-1)+"d";
+        if(clicks==3)
+            box.innerText= box.innerText.slice(0,-1)+"e";
+            if(clicks==4){
+            box.innerText= box.innerText.slice(0,-1)+"f";
+            clicks=0;
+            }
+        })
+    document.getElementById("4").addEventListener("click",()=>{
+        sound();
+            clicks++;
+            clearTimeout(timer);
+            timer= setTimeout(()=>{
+                clicks=0;
+                box.innerText= box.innerText+"_";
+
+    
+            },500);
+            if(clicks==1)
+            box.innerText= box.innerText.slice(0,-1)+"4";
+        if(clicks==2)
+            box.innerText= box.innerText.slice(0,-1)+"g";
+        if(clicks==3)
+            box.innerText= box.innerText.slice(0,-1)+"h";
+            if(clicks==4){
+            box.innerText= box.innerText.slice(0,-1)+"i";
+            clicks=0;
+            }
+        })
+        document.getElementById("5").addEventListener("click",()=>{
+            sound();
+            clicks++;
+            clearTimeout(timer);
+            timer= setTimeout(()=>{
+                clicks=0;
+                box.innerText= box.innerText+"_";
+
+    
+            },500);
+            if(clicks==1)
+            box.innerText= box.innerText.slice(0,-1)+"5";
+        if(clicks==2)
+            box.innerText= box.innerText.slice(0,-1)+"j";
+        if(clicks==3)
+            box.innerText= box.innerText.slice(0,-1)+"k";
+            if(clicks==4){
+            box.innerText= box.innerText.slice(0,-1)+"l";
+            clicks=0;
+            }
+        })
+        document.getElementById("6").addEventListener("click",()=>{
+            sound();
+            clicks++;
+            clearTimeout(timer);
+            timer= setTimeout(()=>{
+                clicks=0;
+                box.innerText= box.innerText+"_";
+
+    
+            },500);
+            if(clicks==1)
+            box.innerText= box.innerText.slice(0,-1)+"6";
+        if(clicks==2)
+            box.innerText= box.innerText.slice(0,-1)+"m";
+        if(clicks==3)
+            box.innerText= box.innerText.slice(0,-1)+"n";
+            if(clicks==4){
+            box.innerText= box.innerText.slice(0,-1)+"o";
+            clicks=0;
+            }
+        })
+        document.getElementById("7").addEventListener("click",()=>{
+            sound();
+            clicks++;
+            clearTimeout(timer);
+            timer= setTimeout(()=>{
+                clicks=0;
+                box.innerText= box.innerText+"_";
+
+    
+            },500);
+            if(clicks==1)
+            box.innerText= box.innerText.slice(0,-1)+"7";
+        if(clicks==2)
+            box.innerText= box.innerText.slice(0,-1)+"p";
+        if(clicks==3)
+            box.innerText= box.innerText.slice(0,-1)+"q";
+        if(clicks==4)
+            box.innerText= box.innerText.slice(0,-1)+"r";
+            if(clicks==5){
+            box.innerText= box.innerText.slice(0,-1)+"s";
+            clicks=0;
+            }
+        })
+        document.getElementById("8").addEventListener("click",()=>{
+            sound();
+            clicks++;
+            clearTimeout(timer);
+            timer= setTimeout(()=>{
+                clicks=0;
+                box.innerText= box.innerText+"_";
+
+    
+            },500);
+            if(clicks==1)
+            box.innerText= box.innerText.slice(0,-1)+"8";
+        if(clicks==2)
+            box.innerText= box.innerText.slice(0,-1)+"t";
+        if(clicks==3)
+            box.innerText= box.innerText.slice(0,-1)+"u";
+            if(clicks==4){
+            box.innerText= box.innerText.slice(0,-1)+"v";
+            clicks=0;
+            }
+        })
+        document.getElementById("9").addEventListener("click",()=>{
+            sound();
+            clicks++;
+            clearTimeout(timer);
+            timer= setTimeout(()=>{
+                clicks=0;
+                box.innerText= box.innerText+"_";
+
+    
+            },500);
+            if(clicks==1)
+            box.innerText= box.innerText.slice(0,-1)+"9";
+        if(clicks==2)
+            box.innerText= box.innerText.slice(0,-1)+"w";
+        if(clicks==3)
+            box.innerText= box.innerText.slice(0,-1)+"x";
+        if(clicks==4)
+            box.innerText= box.innerText.slice(0,-1)+"y";
+            if(clicks==5){
+            box.innerText= box.innerText.slice(0,-1)+"z";
+            clicks=0;
+            }
+        })
+        document.getElementById("*").addEventListener("click",()=>{
+            sound();
+            clicks++;
+            clearTimeout(timer);
+            timer= setTimeout(()=>{
+                clicks=0;
+                box.innerText= box.innerText+"_";
+
+    
+            },500);
+            if(clicks==1)
+            box.innerText= box.innerText.slice(0,-1)+"*";
+            if(clicks==2){
+            box.innerText= box.innerText.slice(0,-1)+"#";
+            clicks=0;
+            }
+        })
+        document.getElementById("0").addEventListener("click",()=>{
+            sound();
+            clicks++;
+            clearTimeout(timer);
+            timer= setTimeout(()=>{
+                clicks=0;
+                box.textContent= box.textContent+"_";
+
+    
+            },500);
+            if(clicks==1)
+            box.textContent= box.textContent.slice(0,-1)+"0";
+            if(clicks==2){
+            box.textContent= box.textContent.slice(0,-1)+" ";
+            clicks=0;
+            }
+        })
+        document.getElementById("<<").addEventListener("click",()=>{
+            sound();
+            box.innerText= box.innerText.slice(0,-2)+"_";
+        })
+
+    </script>
+</html>
